@@ -1,0 +1,12 @@
+node_modules/
+test/
+examples/
+.github/
+.git/
+.gitignore
+package-lock.json
+*.log
+.DS_Store
+.env
+.env.*
+coverage/

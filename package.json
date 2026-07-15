@@ -1,0 +1,56 @@
+{
+  "name": "@howie777/mp-ci",
+  "version": "1.0.0",
+  "description": "Personal CLI wrapper around miniprogram-ci for WeChat mini program upload/preview",
+  "keywords": [
+    "miniprogram",
+    "wechat",
+    "miniprogram-ci",
+    "uni-app",
+    "upload",
+    "preview",
+    "cli"
+  ],
+  "author": "howie777",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "mp-ci": "bin/mp-ci.js"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howing/mp-ci.git"
+  },
+  "bugs": {
+    "url": "https://github.com/howing/mp-ci/issues"
+  },
+  "homepage": "https://github.com/howing/mp-ci#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "mp-ci": "node bin/mp-ci.js"
+  },
+  "peerDependencies": {
+    "miniprogram-ci": ">=2.0.0 <3"
+  },
+  "devDependencies": {
+    "miniprogram-ci": "^2.1.31"
+  }
+}

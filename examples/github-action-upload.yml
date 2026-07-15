@@ -1,0 +1,51 @@
+# 复制到你的项目：.github/workflows/mp-upload.yml
+# 并在仓库 Secrets 中配置：
+#   MP_CI_PRIVATE_KEY  — 上传密钥文件全文
+# （可选）按需改 build / project 名
+
+name: mp-upload
+
+on:
+  workflow_dispatch:
+    inputs:
+      desc:
+        description: Upload description
+        required: false
+        default: CI upload
+      version:
+        description: Version (empty = from manifest/config)
+        required: false
+        default: ''
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # 若未配置 preUpload，在此构建产物
+      # - run: npm run build:mp-weixin
+
+      - name: Write upload private key
+        env:
+          MP_CI_PRIVATE_KEY: ${{ secrets.MP_CI_PRIVATE_KEY }}
+        run: |
+          mkdir -p ci/keys
+          # 请把文件名改成 private.{你的appid}.key，或设 MP_CI_PRIVATE_KEY_PATH
+          printf '%s' "$MP_CI_PRIVATE_KEY" > ci/keys/private.key
+          echo "MP_CI_PRIVATE_KEY_PATH=$PWD/ci/keys/private.key" >> "$GITHUB_ENV"
+
+      - name: Upload mini program
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            npx mp-ci upload --desc "${{ github.event.inputs.desc }}" --ver "${{ github.event.inputs.version }}"
+          else
+            npx mp-ci upload --desc "${{ github.event.inputs.desc }}"
+          fi
