@@ -19,7 +19,7 @@ npm i -D @howie777/mp-ci miniprogram-ci
 ```bash
 npm i -D file:../mp-ci miniprogram-ci
 # 或
-npm i -D git+https://github.com/howing/mp-ci.git#v1.0.0 miniprogram-ci
+npm i -D git+https://github.com/howing/mp-ci.git#v1.0.1 miniprogram-ci
 ```
 
 ## 配置

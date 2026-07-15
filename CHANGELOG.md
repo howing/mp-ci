@@ -2,6 +2,12 @@
 
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.0.1] - 2026-07-16
+
+### Fixed
+
+- 重新发布到 npm（`1.0.0` 曾被 unpublish，版本号不可复用）
+
 ## [1.0.0] - 2026-07-15
 
 ### Added

@@ -1,6 +1,6 @@
 {
   "name": "@howie777/mp-ci",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Personal CLI wrapper around miniprogram-ci for WeChat mini program upload/preview",
   "keywords": [
     "miniprogram",
